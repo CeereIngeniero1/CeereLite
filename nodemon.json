@@ -1,0 +1,8 @@
+{
+    "watch": ["server"],
+    "ignore": [
+      "server/routes/capturarNombreServidorParaVariableGlobalRoutes.js",
+      "src/config/config.js"
+    ],
+    "ext": "js,json"
+}  

@@ -1,0 +1,21 @@
+@echo off
+echo Actualizando base de datos...
+
+:: Variables de configuración
+set DB_SERVER=DESKTOP-FJMFHKV\SQLEXPRESS
+set DB_USER=CeereRIPS
+set DB_PASSWORD=crsoft
+set DB_FILE=actualizar_bd.sql
+
+:: Ejecutar el script SQL
+sqlcmd -S %DB_SERVER% -U %DB_USER% -P %DB_PASSWORD% -i %DB_FILE% -f 65001
+
+
+:: Comprobar si la ejecución fue exitosa
+if %errorlevel% neq 0 (
+    echo Ocurrió un error durante la actualización de la base de datos.
+    pause
+) else (
+    echo Actualización completada exitosamente.
+    pause
+)

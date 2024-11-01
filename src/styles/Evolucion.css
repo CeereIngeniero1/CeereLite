@@ -1,0 +1,289 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+
+}
+.containerEvolucion {
+    flex: 1;
+    display: flex;
+    width: 98.7vw;
+}
+
+
+.content {
+    flex: 1;
+    box-sizing: border-box;
+    background: #fff;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+
+@media (max-width: 600px) {
+    .tipoRIPS {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tipoRIPS span,
+    .tipoRIPS select,
+    .tipoRIPS input[type="radio"] {
+        margin-bottom: 10px;
+    }
+}
+@media (min-width: 1650px) {
+
+    .containerEvolucion {
+        width: 100vw;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .sidebar .nameUsuario span {
+        font-size: 20px;
+
+    }
+
+    .sidebar .imagen img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid #ecf0f1;
+    }
+
+    .sidebar .atencionGroup h4 {
+        font-size: 28px;
+        margin-bottom: 5px;
+        color: #ecf0f1;
+    }
+
+    .sidebar .atencionGroup span {
+        font-size: 15px;
+        color: #bdc3c7;
+    }
+
+
+    .inputGroupcontainerEvolucion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .inputGroup label {
+        font-size: 16px;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+        width: 250px;
+    }
+
+    .body {
+        font-size: 20px;
+    }
+
+    .body textarea {
+        font-size: 18px;
+    }
+
+    footer {
+        margin-bottom: 68px;
+
+    }
+
+    .datosRIPS {
+        margin-bottom: 20px;
+    }
+
+    .datosRIPS span {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .datosRIPS input[type="radio"] {
+        margin-right: 5px;
+        font-size: 15px;
+
+    }
+
+
+    .datosRIPS select {
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: white;
+        color: #333;
+        width: 200px;
+        font-size: 15px;
+    }
+
+    .tipoRIPS span {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .datosRIPS .CP {
+        margin-bottom: 15px;
+    }
+
+    .tipoRIPS .procedimientos select {
+        width: 78%;
+        font-size: 15px;
+    }
+
+    .tipoRIPS .procedimientos input {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .containerEvolucion {
+        width: 98.7vw;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .sidebar .nameUsuario span {
+        font-size: 20px;
+
+    }
+
+    .sidebar .imagen img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 2px solid #ecf0f1;
+    }
+
+    .sidebar .atencionGroup h4 {
+        font-size: 17px;
+        margin-bottom: 5px;
+        color: #ecf0f1;
+    }
+
+    .sidebar .atencionGroup span {
+        font-size: 15px;
+        color: #bdc3c7;
+    }
+
+
+    .inputGroupcontainerEvolucion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .inputGroup label {
+        font-size: 16px;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+        width: 250px;
+    }
+
+    .body {
+        font-size: 20px;
+    }
+
+    .body textarea {
+        font-size: 18px;
+    }
+
+    footer {
+        margin-bottom: 68px;
+
+    }
+
+    .datosRIPS {
+        margin-bottom: 20px;
+    }
+
+    .datosRIPS span {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .datosRIPS input[type="radio"] {
+        margin-right: 5px;
+        font-size: 15px;
+
+    }
+
+
+    .datosRIPS select {
+        padding: 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: white;
+        color: #333;
+        width: 200px;
+        font-size: 15px;
+    }
+
+    .tipoRIPS span {
+        margin-right: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .datosRIPS .CP {
+        margin-bottom: 15px;
+    }
+
+    .tipoRIPS .procedimientos select {
+        width: 78%;
+        font-size: 15px;
+    }
+
+    .tipoRIPS .procedimientos input {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .containerEvolucion {
+        width: 100vw;
+    }
+
+    .sidebar .atencionGroup h4 {
+        font-size: 20px;
+    }
+
+    .tipoRIPS {
+        margin-bottom: 36px !important;
+    }
+}
+
+@media (min-width: 1515px) {
+    .containerEvolucion {
+        width: 98.8vw;
+    }
+
+    .sidebar .atencionGroup h4 {
+        font-size: 20px;
+    }
+
+    .tipoRIPS {
+        margin-bottom: 36px !important;
+    }
+}
+
