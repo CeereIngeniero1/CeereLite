@@ -111,9 +111,8 @@ export function Configuracion() {
                 </div>
 
                 {/* Sección 2: Logo Formatos */}
-                <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center justify-center" style={{display: 'none'}}>
                     <h2 className="text-xl font-semibold mb-4">Logo Formatos</h2>
-                    {/* Aquí puedes añadir otra imagen o funcionalidad similar */}
                     <img src={imageSrc} alt="Logo Formatos" className="w-32 h-32 object-cover mb-4" />
                     <button className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition duration-300">
                         Acción Formatos
@@ -121,7 +120,7 @@ export function Configuracion() {
                 </div>
 
                 {/* Secciones 3 a 10 (Aleatorias) */}
-                <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center justify-center">
+                {/* <div className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center justify-center">
                     <h2 className="text-xl font-semibold mb-4">Sección 3</h2>
                     <button className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition duration-300">
                         Acción 3
@@ -175,7 +174,7 @@ export function Configuracion() {
                     <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition duration-300">
                         Acción 10
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     );

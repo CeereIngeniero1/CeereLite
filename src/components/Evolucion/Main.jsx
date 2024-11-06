@@ -1334,7 +1334,8 @@ function Main({ insertarEvaluacionFormatos, footer, datosPaciente, setDatosPacie
                 </div>
             </div>
 
-            <Signatures setFirmaPaciente={setFirmaPaciente} setFirmaProfesional={setFirmaProfesional} firmaPaciente={firmaPaciente} />
+            {/* Apartado para adjuntar firmas del profesional y del usuario/paciente */}
+            {/* <Signatures setFirmaPaciente={setFirmaPaciente} setFirmaProfesional={setFirmaProfesional} firmaPaciente={firmaPaciente} /> */}
             <ToastContainer />
 
         </MainContainer>

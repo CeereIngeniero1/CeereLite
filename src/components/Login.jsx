@@ -23,13 +23,19 @@ const Login = ({ setIsAuthenticated }) => {
             Swal.fire({
                 title: "¡El campo usuario está vacío!",
                 icon: "warning",
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
+                confirmButtonColor: '#2c3e50',
+                allowOutsideClick: false,
+                allowEscapeKey: false
             });
         } else if (password === '') {
             Swal.fire({
                 title: "¡El campo contraseña está vacío!",
                 icon: "warning",
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
+                confirmButtonColor: '#2c3e50',
+                allowOutsideClick: false,
+                allowEscapeKey: false
             });
         } else {
             try {
@@ -164,21 +170,21 @@ const Login = ({ setIsAuthenticated }) => {
                             <FaLock className="absolute right-[20px] top-[20%] transform -translate-y-[-50%] text-16px" />
                         </div>
 
-                        <div className="flex justify-between text-[14.5px] mr-0 mt-[15px] mb-[15px]">
+                        {/* <div className="flex justify-between text-[14.5px] mr-0 mt-[15px] mb-[15px]">
                             <label htmlFor=""><input type="checkbox" className="accent-white mr-1" />Recordarme</label>
                             <a href="#" className="text-white no-underline hover:underline">Recordar contraseña</a>
-                        </div>
+                        </div> */}
                         <button type="button"
                             onClick={handleLogin}
-                            className="w-full h-[45px] bg-white border-none rounded-[40px] shadow-[0_0_10px_rgba(0,0,0,0.1)] cursor-pointer text-[16px] text-[#333] font-bold"
+                            className="w-full h-[45px] bg-white border-none rounded-[40px] shadow-[0_0_10px_rgba(0,0,0,0.1)] cursor-pointer text-[16px] text-[#333] font-bold mt-[30px]"
                         >
                             Iniciar sesión
                         </button>
 
 
-                        <div className="text-[14.5px] text-center mt-[20px] m-0 mb-[15px]">
+                        {/* <div className="text-[14.5px] text-center mt-[20px] m-0 mb-[15px]">
                             <p className="text-white no-underline font-semibold hover:underline">No tiene usuario?<a href="" className="text-white no-underline font-semibold hover:underline"> Solicite uno aquí</a></p>
-                        </div>
+                        </div> */}
                     </form>
                 </div>
                 <ToastContainer />

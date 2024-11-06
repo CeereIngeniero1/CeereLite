@@ -118,7 +118,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
                 </div>
             ))}
             <Divider />
-            <div className="Themecontent">
+            <div className="Themecontent" style={{display: 'none'}}>
                 {sidebarOpen && <span className="titletheme">Dark mode</span>}
                 <div className="Togglecontent">
                     <div className="grid theme-container">
@@ -158,26 +158,26 @@ const linksArray = [
         icon: <FaBookMedical size={23} />,
         to: "/Evolucion",
     },
-    {
-        label: "Facturación",
-        icon: <FaMoneyBillTrendUp />,
-        to: "#", // No tiene ruta, pues despliega submenú
-    },
+    // {
+    //     label: "Facturación",
+    //     icon: <FaMoneyBillTrendUp />,
+    //     to: "#", // No tiene ruta, pues despliega submenú
+    // },
     {
         label: "Usuarios",
         icon: <FaUserFriends />,
         to: "/Usuarios",
     },
-    {
-        label: "Relacionador RIPS",
-        icon: <AiOutlineMedicineBox />,
-        to: "/Rips",
-    },
-    {
-        label: "Pruebas",
-        icon: <MdLogout />,
-        to: "Pruebas",
-    },
+    // {
+    //     label: "Relacionador RIPS",
+    //     icon: <AiOutlineMedicineBox />,
+    //     to: "/Rips",
+    // },
+    // {
+    //     label: "Pruebas",
+    //     icon: <MdLogout />,
+    //     to: "Pruebas",
+    // },
     {
         label: "Configuración",
         icon: <IoSettingsSharp />,

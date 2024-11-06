@@ -256,7 +256,7 @@ export function TablaUsuarios() {
               <DropdownMenu>
                 {/* <DropdownItem>Ver</DropdownItem> */}
                 {/* <DropdownItem onClick={EditarActualizarUsuario}>Editar</DropdownItem> */}
-                <DropdownItem onClick={() => EditarActualizarUsuario(user.documentousuario)}>
+                <DropdownItem onClick={() => EditarActualizarUsuario(user.documentousuario)} style={{display: 'none'}}>
                   Editar
                 </DropdownItem>
                 <DropdownItem onClick={() => handleNavegar(user.documentousuario)}>Evolucionar</DropdownItem>
