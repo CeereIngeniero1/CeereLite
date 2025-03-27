@@ -165,8 +165,8 @@ const Login = ({ setIsAuthenticated }) => {
                         </div>
 
                         <div className="flex justify-between text-[14.5px] mr-0 mt-[15px] mb-[15px]">
-                            <label htmlFor=""><input type="checkbox" className="accent-white mr-1" />Recordarme</label>
-                            <a href="#" className="text-white no-underline hover:underline">Recordar contraseña</a>
+                            {/* <label htmlFor=""><input type="checkbox" className="accent-white mr-1" />Recordarme</label>
+                            <a href="#" className="text-white no-underline hover:underline">Recordar contraseña</a> */}
                         </div>
                         <button type="button"
                             onClick={handleLogin}
@@ -177,7 +177,7 @@ const Login = ({ setIsAuthenticated }) => {
 
 
                         <div className="text-[14.5px] text-center mt-[20px] m-0 mb-[15px]">
-                            <p className="text-white no-underline font-semibold hover:underline">No tiene usuario?<a href="" className="text-white no-underline font-semibold hover:underline"> Solicite uno aquí</a></p>
+                            {/* <p className="text-white no-underline font-semibold hover:underline">No tiene usuario?<a href="" className="text-white no-underline font-semibold hover:underline"> Solicite uno aquí</a></p> */}
                         </div>
                     </form>
                 </div>

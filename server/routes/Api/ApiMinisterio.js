@@ -13,21 +13,32 @@ const router = express.Router();
 // Ruta para login
 router.post('/Auth/LoginSISPRO', async (req, res) => {
     const loginData = {
+        // PARA DOCTOR FEDERICO ZAPATA
+        // persona: {
+        //     identificacion: {
+        //         tipo: "CC",
+        //         numero: "71709046"
+        //     }
+        // },
+        // clave: "Ceere1026*",
+        // nit: "71709046"
+
         persona: {
             identificacion: {
                 tipo: "CC",
-                numero: "71709046"
+                numero: "30319671"
             }
         },
-        clave: "Ceere1026*",
-        nit: "71709046"
+        clave: "Isanico2510",
+        nit: "30319671"
     };
 
     // Imprimir los datos que se enviarán
     console.log("Datos enviados al API:", loginData);
 
     try {
-        const response = await axios.post('https://localhost:9443/api/Auth/LoginSISPRO', loginData, { httpsAgent: agent });
+        // const response = await axios.post('https://localhost:9443/api/Auth/LoginSISPRO', loginData, { httpsAgent: agent });
+        const response = await axios.post('https://HPRED241:9443/api/Auth/LoginSISPRO', loginData, { httpsAgent: agent });
         const { token, login } = response.data;
         console.log("Respuesta del API:", response.data);
 

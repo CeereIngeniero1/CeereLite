@@ -1,2 +1,2 @@
-export const servidor = 'HPRED241';
+export const servidor = 'HPGRIS';
 export const port = 3001

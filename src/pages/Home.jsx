@@ -14,8 +14,8 @@ export function Home() {
     const [imageSrc, setImageSrc] = useState(null);
 
 
-    console.log(`El Documento del usuario que inició sesión es: ${documentoEntidad}`);
-    console.log(`El Nombre del usuario que inició sesión es: ${nombreUsuario}`);
+    // console.log(`El Documento del usuario que inició sesión es: ${documentoEntidad}`);
+    // console.log(`El Nombre del usuario que inició sesión es: ${nombreUsuario}`);
 
 
     useEffect(() => {

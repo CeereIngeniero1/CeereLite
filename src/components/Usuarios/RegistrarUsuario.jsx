@@ -107,9 +107,9 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
     ? `${CiudadSeleccionada.Ciudad} [${CiudadSeleccionada.id}]`
     : "";
   const IdCiudadNacimiento = extractIdFromInput(inputValue);
-  console.log(
-    `Id de la ciudad de nacimiento seleccionada => ${IdCiudadNacimiento}`
-  ); // debería imprimir el id de la ciudad seleccionada
+  // console.log(
+  //   `Id de la ciudad de nacimiento seleccionada => ${IdCiudadNacimiento}`
+  // ); // debería imprimir el id de la ciudad seleccionada
   /* FIN FIN FIN */
 
   React.useEffect(() => {
@@ -120,7 +120,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
       setCiudades([]); // Limpiar las ciudades
       setIdCiudad("SinSeleccionar"); // Limpiar la ciudad seleccionada
     } else {
-      console.log(`Cargando departamentos para el país: ${PaisDeResidencia}`);
+      // console.log(`Cargando departamentos para el país: ${PaisDeResidencia}`);
       fetch(
         `http://${servidor}:${port}/api/registrarusuario/departamento?pais=${PaisDeResidencia}`
       )
@@ -131,7 +131,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
           return response.json();
         })
         .then((data) => {
-          console.log("Departamentos recibidos:", data);
+          // console.log("Departamentos recibidos:", data);
           setDepartamentos(data);
           setDepartamento("SinSeleccionar"); // Resetear el departamento seleccionado
           setCiudades([]); // Limpiar las ciudades
@@ -145,7 +145,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
   // Cargar ciudades al cambiar el departamento
   React.useEffect(() => {
     if (Departamento !== "SinSeleccionar") {
-      console.log(`Cargando ciudades para el departamento: ${Departamento}`);
+      // console.log(`Cargando ciudades para el departamento: ${Departamento}`);
       fetch(
         `http://${servidor}:${port}/api/registrarusuario/ciudad?departamento=${Departamento}`
       )
@@ -161,11 +161,11 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
   }, [Departamento]);
 
   React.useEffect(() => {
-    console.log("Departamento actual:", Departamento);
+    // console.log("Departamento actual:", Departamento);
   }, [Departamento]);
 
   React.useEffect(() => {
-    console.log("Ciudad actual:", IdCiudad);
+    // console.log("Ciudad actual:", IdCiudad);
   }, [IdCiudad]);
 
   // React.useEffect(() => {
@@ -204,7 +204,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
   /* VAMOS */
   React.useEffect(() => {
     if (FechaDeNacimiento && !manualOverride) {
-      console.log(`La Fecha de Nacimiento ha cambiado => ${FechaDeNacimiento}`);
+      // console.log(`La Fecha de Nacimiento ha cambiado => ${FechaDeNacimiento}`);
 
       // Calcular la edad
       const calcularEdad = (fechaNacimiento) => {
@@ -247,7 +247,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
       setManualOverride(false);
     }
 
-    console.log(inputEdad);
+    // console.log(inputEdad);
   };
   /* FIN - VAMOS */
 
@@ -299,7 +299,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
 
   const FechaValida = (newValue) => {
     if (newValue) {
-      console.log("Valor recibido en FechaValida:", newValue);
+      // console.log("Valor recibido en FechaValida:", newValue);
       setFechaDeNacimiento(newValue);
     } else {
       setFechaDeNacimiento(null);
@@ -310,14 +310,14 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
   React.useEffect(() => {
     if (TipoDeVinculacion) {
       setTipoDeVinculacion(TipoDeVinculacion);
-      console.log("Tipo de vinculación seleccionado => " + TipoDeVinculacion);
+      // console.log("Tipo de vinculación seleccionado => " + TipoDeVinculacion);
     }
   });
 
   React.useEffect(() => {
     if (IdCiudad) {
       setIdCiudad(IdCiudad);
-      console.log("Ciudad seleccionada => " + IdCiudad);
+      // console.log("Ciudad seleccionada => " + IdCiudad);
     }
   });
 
@@ -345,7 +345,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
   React.useEffect(() => {
     if (PaisDeResidencia) {
       setPaisDeResidencia(PaisDeResidencia);
-      console.log("País de residencia seleccionado => " + PaisDeResidencia);
+      // console.log("País de residencia seleccionado => " + PaisDeResidencia);
     }
   }, [PaisDeResidencia]); // Agrega PaisDeResidencia como dependencia
 
@@ -506,7 +506,7 @@ const ModalRegistrarUsuario = memo(function ModalRegistrarUsuario({isOpen, onOpe
         }
       );
 
-      console.log(response.data); // Muestra el mensaje del servidor
+      // console.log(response.data); // Muestra el mensaje del servidor
       Swal.fire({
         icon: "success",
         text: "Usuario registrado exitosamente",

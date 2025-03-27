@@ -7,6 +7,8 @@ import { servidor } from '../../config/config';
 import { port } from '../../config/config';
 import { useGlobalContext } from '../../config/GlobalContext';
 import { ModalConfigRips } from './ModalConfigRips';
+import { MODAL_RIPS_AC_POR_DEFECTO } from './ModalRipsPorDefecto/MODAL_RIPS_AC_POR_DEFECTO';
+import { MODAL_RIPS_AP_POR_DEFECTO } from './ModalRipsPorDefecto/MODAL_RIPS_AP_POR_DEFECTO';
 
 
 function Footer({ tipoRIPS, setTipoRIPS, selectedTipoRips, setSelectedTipoRips, selectedEntidad, setSelectedEntidad, selectedViaIngreso, setSelectedViaIngreso, selectedModalidad, setSelectedModalidad, selectedGrupoServicios, setSelectedGrupoServicios, selectedServicio, setSelectedServicio, selectedFinalidad, setSelectedFinalidad, selectedCausa, setSelectedCausa, selectedTipoDiag, setSelectedTipoDiag, selectedCUPS, setSelectedCUPS, selectedCUPS2, setSelectedCUPS2, selectedCIE, setSelectedCIE, selectedCIE2, setSelectedCIE2 }) {
@@ -729,12 +731,24 @@ function Footer({ tipoRIPS, setTipoRIPS, selectedTipoRips, setSelectedTipoRips, 
 
         <FooterContainer>
             <div className="datosRIPS">
-                <div className="CP">
-                    <input type="radio" name="tipoRIPS" id="radioAC" value="1" onChange={handleTipoConsultaChange} checked={tipoRIPS === '1'} />
-                    <span>Archivo de Consulta(AC)</span>
+                <div className="CP" style={{display: "flex"}}>
+                    <div style={{width: "31%"}}>
+                        <input type="radio" name="tipoRIPS" id="radioAC" value="1" onChange={handleTipoConsultaChange} checked={tipoRIPS === '1'} />
+                        <span>Archivo de Consulta(AC)</span>
 
-                    <input type="radio" name="tipoRIPS" id="radioAP" value="2" onChange={handleTipoConsultaChange} checked={tipoRIPS === '2'} />
-                    <span>Archivo de Procedimientos(AP)</span>
+                        <input type="radio" name="tipoRIPS" id="radioAP" value="2" onChange={handleTipoConsultaChange} checked={tipoRIPS === '2'} />
+                        <span>Archivo de Procedimientos(AP)</span>
+                    </div>
+
+                    <div style={{width: "69%", display: "flex"}}>
+                        <div style={{width: "50%"}}>
+                            <MODAL_RIPS_AC_POR_DEFECTO/>
+                        </div>
+
+                        <div style={{width: "50%"}}>
+                            <MODAL_RIPS_AP_POR_DEFECTO/>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="listas">
@@ -784,8 +798,10 @@ function Footer({ tipoRIPS, setTipoRIPS, selectedTipoRips, setSelectedTipoRips, 
                     </div>
 
                     <div className="listas-group listaCausaMotivo">
-                        <ModalConfigRips />
+                        {/* <ModalConfigRips /> */}
                     </div>
+
+
                 </div>
             </div>
 

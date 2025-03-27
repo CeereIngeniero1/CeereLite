@@ -10,9 +10,29 @@ router.get('/evoluciones/:documentoEntidad', async (req, res) => {
         const pool = await poolPromise;
         const result = await pool.request()
             .input('DocumentoEntidad', sql.VarChar, documentoEntidad) // Agrega los parámetros
+            // .query(`SELECT eve.[Id Evaluación Entidad], 
+            //         en.[Primer Nombre Entidad] + ' ' + en.[Primer Apellido Entidad] as [Nombre Paciente], 
+            //         eve.[Fecha Evaluación Entidad]
+            //         FROM [Evaluación Entidad] as eve
+            //         INNER JOIN Entidad as en ON eve.[Documento Entidad] = en.[Documento Entidad]
+            //         WHERE eve.[Id Tipo de Evaluación] = 1 AND eve.[Documento Entidad] = @DocumentoEntidad
+            //         ORDER BY eve.[Fecha Evaluación Entidad] DESC`);
+            
+            // __________________________________________________________________________________________
             .query(`SELECT eve.[Id Evaluación Entidad], 
                     en.[Primer Nombre Entidad] + ' ' + en.[Primer Apellido Entidad] as [Nombre Paciente], 
-                    eve.[Fecha Evaluación Entidad]
+                    eve.[Fecha Evaluación Entidad],
+					CASE	
+						WHEN  eve.[Id Estado] = 7 THEN 'Cerrado'
+						WHEN  eve.[Id Estado] = 8 THEN 'Abierto'
+						ELSE ''
+					END AS [Estado],
+                    FORMAT(eve.[Fecha Evaluación Entidad], 'hh:mm tt') AS [Hora]
+                    --+ 
+					--CASE 
+					--	WHEN DATEPART(HOUR, eve.[Fecha Evaluación Entidad]) < 12 THEN 'AM'
+					--	ELSE 'PM'
+					--END AS [Hora]
                     FROM [Evaluación Entidad] as eve
                     INNER JOIN Entidad as en ON eve.[Documento Entidad] = en.[Documento Entidad]
                     WHERE eve.[Id Tipo de Evaluación] = 1 AND eve.[Documento Entidad] = @DocumentoEntidad
@@ -21,7 +41,9 @@ router.get('/evoluciones/:documentoEntidad', async (req, res) => {
         const evolucionesPacienteData = result.recordset.map(row => ({
             idEvolucion: row['Id Evaluación Entidad'],
             pacienteEvolucion: row['Nombre Paciente'],
-            fechaEvolucion: row['Fecha Evaluación Entidad'].toISOString().split('T')[0]
+            fechaEvolucion: row['Fecha Evaluación Entidad'].toISOString().split('T')[0],
+            estado: row['Estado'],
+            hora: row['Hora']
         }));
 
         res.json(evolucionesPacienteData);
@@ -41,7 +63,13 @@ router.get('/formulas/:documentoEntidad', async (req, res) => {
             .input('DocumentoEntidad', sql.VarChar, documentoEntidad)
             .query(`SELECT eve.[Id Evaluación Entidad], 
                     en.[Primer Nombre Entidad] + ' ' + en.[Primer Apellido Entidad] as [Nombre Paciente], 
-                    eve.[Fecha Evaluación Entidad]
+                    eve.[Fecha Evaluación Entidad],
+                    CASE	
+						WHEN  eve.[Id Estado] = 7 THEN 'Cerrado'
+						WHEN  eve.[Id Estado] = 8 THEN 'Abierto'
+						ELSE ''
+					END AS [Estado],
+                    FORMAT(eve.[Fecha Evaluación Entidad], 'hh:mm tt') AS [Hora]
                     FROM [Evaluación Entidad] as eve
                     INNER JOIN Entidad as en ON eve.[Documento Entidad] = en.[Documento Entidad]
                     WHERE eve.[Id Tipo de Evaluación] = 2 AND eve.[Documento Entidad] = @DocumentoEntidad
@@ -50,7 +78,9 @@ router.get('/formulas/:documentoEntidad', async (req, res) => {
         const formulasPacienteData = result.recordset.map(row => ({
             idEvolucion: row['Id Evaluación Entidad'],
             pacienteEvolucion: row['Nombre Paciente'],
-            fechaEvolucion: row['Fecha Evaluación Entidad'].toISOString().split('T')[0]
+            fechaEvolucion: row['Fecha Evaluación Entidad'].toISOString().split('T')[0],
+            estado: row['Estado'],
+            hora: row['Hora']
         }));
 
         res.json(formulasPacienteData);

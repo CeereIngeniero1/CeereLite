@@ -84,7 +84,7 @@ router.post('/insert-evaluacion', async (req, res) => {
             VALUES 
             (@listaEvaluacion, @documentoPaciente, @edadPaciente, @nombreAcompanante, 
             @parentescoAcompanante, @telefonoAcompanante, @DiagGeneral, @DiagEspecifico, 'False', @direccionPaciente, 
-            @ciudadPaciente, @celularPaciente, @fechaNacimiento, @unidadMedida, @sexoPaciente, 7, @estadoCivilPaciente, 
+            @ciudadPaciente, @celularPaciente, @fechaNacimiento, @unidadMedida, @sexoPaciente, 8, @estadoCivilPaciente, 
             @ocupacionPaciente, @aseguradora, @tipoAfiliado, @nombreResponsable, @parentescoResponsable, @telefonoResponsable, @documentoUsuario, @docEmpresa, @documentoUsuario, '1', 'False', 'False', 'False');
             
             COMMIT TRANSACTION;
@@ -126,7 +126,7 @@ router.post('/insert-evaluacion', async (req, res) => {
             VALUES 
             (@listaEvaluacion, @documentoPaciente, @edadPaciente, @nombreAcompanante, 
             @parentescoAcompanante, @telefonoAcompanante, @DiagGeneral, @DiagEspecifico, 'False', @direccionPaciente, 
-            @ciudadPaciente, @celularPaciente, @fechaNacimiento, @unidadMedida, @sexoPaciente, 7, @estadoCivilPaciente, 
+            @ciudadPaciente, @celularPaciente, @fechaNacimiento, @unidadMedida, @sexoPaciente, 8, @estadoCivilPaciente, 
             @ocupacionPaciente, @aseguradora, @tipoAfiliado, @nombreResponsable, @parentescoResponsable, @telefonoResponsable, @documentoUsuario, @docEmpresa, @documentoUsuario, '1', 'False', @firmaPaciente, 'False', 'False');
 
             ${insertEvaluacionRipsQuery}
@@ -183,8 +183,23 @@ router.post('/insert-evaluacion', async (req, res) => {
         return res.status(200).json({ message: 'Historia clínica insertada correctamente' });
     } catch (err) {
         console.error('Error al insertar la historia clínica:', err.message);
-        return res.status(500).json({ error: 'Error al insertar la historia clínica' });
+        return res.status(500).json({ error: `Error al insertar la historia clínica => ${err.message}` });
     }
+});
+
+router.post('/insert-evaluacion/guardarycerrar', async (req, res) => {
+    console.log('Datos recibidos:', req.body);
+    res.status(200).json('insertar morris');
+})
+
+// router.get('/mor', async (req, res) => {
+//     console.log('HOLA MORR, LLEGÓ LA PETICIÓN POR EL CAMINO CORRECTO');
+// })
+
+router.get('/mor', async (req, res) => {
+    console.log('HOLA MORR, LLEGÓ LA PETICIÓN POR EL CAMINO CORRECTO');
+    res.status(200).json('¡Petición recibida correctamente!'); // Envía una respuesta al cliente
+    // res.json('¡Petición recibida correctamente!'); // Envía una respuesta al cliente
 });
 
 export default router;

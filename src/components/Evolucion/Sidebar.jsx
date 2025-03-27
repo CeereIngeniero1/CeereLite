@@ -210,12 +210,21 @@ function Sidebar() {
                                 <div
                                     key={item.idEvolucion}
                                     onClick={() => handleEvolucionClick(item.idEvolucion)}
+                                    //className={`border-2 ${item.estado === 'Abierto' ? 'border-red-500' : item.estado === 'Cerrado' ? 'border-green-500' : 'border-gray-300'}`}
+                                    style={{
+                                        border: `4px solid ${item.estado === 'Abierto' ? 'rgb(243, 18, 96)' : item.estado === 'Cerrado' ? 'rgb(23, 201, 100)' : 'silver'}`,
+                                        // background: theme.bgSidebarYeison, // Asegúrate de que `theme` esté disponible en este contexto
+                                        padding: '0.5rem',
+                                        borderRadius: '8px',
+                                        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                                        cursor: 'pointer'
+                                    }}
                                 >
                                     <h4>{tipoHC === 'Fórmula Médica' ? 'Fórmula Médica' : 'Evolución'}</h4>
                                     {/* Solo formatea si la fecha es válida */}
-                                    <span>
+                                    <span>                                        
                                         {item.fechaEvolucion
-                                            ? `${item.pacienteEvolucion} - ${format(parseISO(item.fechaEvolucion), 'dd/MM/yyyy')}`
+                                            ? `${item.pacienteEvolucion} - ${format(parseISO(item.fechaEvolucion), 'dd/MM/yyyy')} - ${item.hora} - ${item.estado}`
                                             : `${item.pacienteEvolucion} - Fecha no disponible`}
                                     </span>
                                 </div>
@@ -323,6 +332,7 @@ const SidebarContainer = styled.div`
         overflow-y: auto; /* Habilitar el scroll vertical */
     }
 
+    /*
     .evolucionGroup > div {
         background: ${({ theme }) => theme.bgSidebarYeison}; /* Ajusta el color de fondo según el tema */
         padding: 0.5rem;
@@ -330,6 +340,7 @@ const SidebarContainer = styled.div`
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+    */
 
     .evolucionGroup h4 {
         margin: 0 0 0.1rem 0;

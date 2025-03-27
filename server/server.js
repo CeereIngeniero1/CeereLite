@@ -53,6 +53,9 @@ import ApiMinisterio from './routes/Api/ApiMinisterio.js'
 
 import ConsultarParaEnvio from './routes/EnvioMinisterio/ConsultarParaEnvio.js'
 
+// RIPS POR DEFECTO
+import ListasRIPS from './routes/Evolucion/ListasRIPS/ListasRIPSRoutes.js'
+
 
 const app = express();
 app.use(cors());
@@ -111,20 +114,22 @@ app.use('/api', InsertarCompromisoRoutes);
 app.use('/api/Rips', EndPointsRipsDefectoRoutes);
 app.use('/api/evolucion/formatos', CargarFormatos);
 //ROUTES REALACIONADOR RIPS
-app.use('/api', EmpresaRoutes)
-app.use('/api', infoPacientesRoutes)
-app.use('/api', descargarArchivosRIPSRoutes)
-app.use('/XMLS', descargarXMLSporAPIFacturatechRoutes)
+app.use('/api', EmpresaRoutes);
+app.use('/api', infoPacientesRoutes);
+app.use('/api', descargarArchivosRIPSRoutes);
+app.use('/XMLS', descargarXMLSporAPIFacturatechRoutes);
 //ROUTES FACTURACION
-app.use('/api/facturacion', DatosFactura)
-app.use('/api/facturacion', InsertarFactura)
-app.use('/api/resolucion', CargarResoluciones)
-app.use('/api/resolucion', CrearResolucion)
-app.use('/api/productos', ConsultarProductos)
+app.use('/api/facturacion', DatosFactura);
+app.use('/api/facturacion', InsertarFactura);
+app.use('/api/resolucion', CargarResoluciones);
+app.use('/api/resolucion', CrearResolucion);
+app.use('/api/productos', ConsultarProductos);
 //API'S
-app.use('/api', ApiMinisterio)
+app.use('/api', ApiMinisterio);
 // ENVIO MINISTERIO
-app.use('/api', ConsultarParaEnvio)
+app.use('/api', ConsultarParaEnvio);
+// RIPS POR DEFECTO
+app.use('/api/Rips/', ListasRIPS);
 
 
 

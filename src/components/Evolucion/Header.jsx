@@ -39,6 +39,7 @@ const Header = ({ resetAndLoad, insertarEvaluacionEntidad, handlePrint, insertar
             <button onClick={newHistoria}>Nueva Historia</button>
             <button onClick={handlePrint}>Imprimir</button> 
             <button id="guardarHistoria" onClick={insertarEvaluacionEntidad}>Guardar</button>
+            <button id="guardarcerrarHistoria">Guardar y Cerrar</button>
             <button id="guardarFormato" onClick={handlePruebaDeFormatosClick}>Guardar Formato</button>
             <button onClick={handleLogout}>Salir</button>
         </StyledHeader>

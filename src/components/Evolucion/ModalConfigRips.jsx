@@ -20,7 +20,8 @@ export function ModalConfigRips() {
     const [entidad, setEntidad] = useState('');
     const [modalidadAtencion, setModalidadAtencion] = useState('');
     const [grupoServicios, setGrupoServicios] = useState('');
-    const [servicios, setServicios] = useState('');
+    const [tipoServicios, setTipoServicios] = useState([]); 
+    const [servicios, setServicios] = useState([]);
     const [finalidadConsulta, setFinalidadConsulta] = useState('');
     const [finalidadProcedimiento, setFinalidadProcedimiento] = useState('');
     const [causaExterna, setCausaExterna] = useState('');
@@ -31,11 +32,18 @@ export function ModalConfigRips() {
     const [codigoDiagnostico, setCodigoDiagnostico] = useState('');
 
 
+    // const tipoRipsMap = {
+    //     '1': '1',
+    //     '2': '17',
+    //     '3': '24',
+    //     '4': '23'
+    // };
+
     const tipoRipsMap = {
         '1': '1',
-        '2': '17',
-        '3': '24',
-        '4': '23'
+        '2': '2',
+        '3': '3',
+        '4': '4'
     };
 
     const codigoTipoRips = tipoRipsMap[tipoRips];
@@ -57,6 +65,32 @@ export function ModalConfigRips() {
 
         fetchEntidades();
     }, [tipoRips]);
+
+    const tipoServiosMap = {
+        '1': '01',
+        '2': '02',
+        '3': '03',
+        '4': '04',
+        '5': '05'
+    };
+    const codigoServicios = tipoServiosMap[tipoServicios];
+    useEffect(() => {
+        // Función para obtener los servicios desde la AP
+        const fetchServicios = async () => {
+            if (tipoServicios) {
+                const codigoServicios = tipoServiosMap[tipoServicios];
+                try {
+                    const response = await axios.get(`http://${servidor}:${port}/api/Rips/Servicios/${codigoServicios}`);
+                    console.log(`El codigo servicios enviado es: ${codigoServicios}`)
+                    setServicios(response.data);
+                    console.log(`DATOS RECIBIDOS DEL SERVIDOR => ${response.data}`);
+                } catch (error) {
+                    console.error('Error al obtener los servicios:', error);
+                }
+            }
+        }
+        fetchServicios();
+    }, [tipoServicios]);
 
     // useEffect para verificar si ya existe un registro cuando se abre el modal
     const checkIfExists = async () => {
@@ -192,7 +226,6 @@ export function ModalConfigRips() {
                                         placeholder="Seleccione una entidad"
                                         options={entidades} // Pasar las entidades obtenidas desde la API
                                         onValueChange={setEntidad}
-
                                     />
                                     <SelectRips
                                         apiEndpoint={`http://${servidor}:${port}/api/Rips/modalidadAtencion`}
@@ -207,10 +240,11 @@ export function ModalConfigRips() {
                                         onValueChange={setGrupoServicios}
                                     />
                                     <SelectRips
-                                        apiEndpoint={`http://${servidor}:${port}/api/Rips/Servicios`}
+                                        apiEndpoint={`http://${servidor}:${port}/api/Rips/Servicios/${codigoServicios}`}
                                         label="Servicio"
                                         placeholder="Seleccione un servicio"
-                                        onValueChange={setServicios}
+                                        options={servicios} // Pasar los servicios obtenidos desde la API
+                                        onValueChange={setTipoServicios}
                                     />
                                     <SelectRips
                                         apiEndpoint={`http://${servidor}:${port}/api/Rips/finalidadConsulta`}
@@ -240,6 +274,31 @@ export function ModalConfigRips() {
                                         apiEndpoint={`http://${servidor}:${port}/api/Rips/viaIngresoUsuario`}
                                         label="Via de Ingreso"
                                         placeholder="Seleccione una via de ingreso"
+                                        onValueChange={setViaIngreso}
+                                    />
+                                    {/* PARA CODIGOS POR DEFECTO */}
+                                    <SelectRips
+                                        // apiEndpoint={`http://${servidor}:${port}/api/Rips/viaIngresoUsuario`}
+                                        label="Consulta RIPS 1"
+                                        placeholder="Seleccione una consulta RIPS 1"
+                                        onValueChange={setViaIngreso}
+                                    />
+                                    <SelectRips
+                                        // apiEndpoint={`http://${servidor}:${port}/api/Rips/viaIngresoUsuario`}
+                                        label="Consulta RIPS 2"
+                                        placeholder="Seleccione una consulta RIPS 2"
+                                        onValueChange={setViaIngreso}
+                                    />
+                                    <SelectRips
+                                        // apiEndpoint={`http://${servidor}:${port}/api/Rips/viaIngresoUsuario`}
+                                        label="Diagnóstico RIPS 1"
+                                        placeholder="Seleccione un diagnóstico RIPS 1"
+                                        onValueChange={setViaIngreso}
+                                    />
+                                    <SelectRips
+                                        // apiEndpoint={`http://${servidor}:${port}/api/Rips/viaIngresoUsuario`}
+                                        label="Diagnóstico RIPS 2"
+                                        placeholder="Seleccione un diagnóstico RIPS 2"
                                         onValueChange={setViaIngreso}
                                     />
                                     <InputRips

@@ -15,7 +15,8 @@ import Diagnosticos from './Evolucion Medica/Diagnosticos';
 import Formatos from './Formatos/Formatos';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Signatures from './Firmas/Firmas';
+// import Signatures from './Firmas/Firmas'; COMPONENTE PARA LAS FIRMAS DEL PACIENTE Y PROFESIONAL
+import { MODAL_RIPS_AC_POR_DEFECTO } from './ModalRipsPorDefecto/MODAL_RIPS_AC_POR_DEFECTO';
 
 
 function Main({ insertarEvaluacionFormatos, footer, datosPaciente, setDatosPaciente, firmaPaciente, setFirmaPaciente, firmaProfesional, setFirmaProfesional }) {
@@ -227,7 +228,10 @@ function Main({ insertarEvaluacionFormatos, footer, datosPaciente, setDatosPacie
                 textarea.removeEventListener('input', adjustHeight);
             };
         });
-    }, []);
+    }, []);  
+    
+    
+    
 
     useEffect(() => {
         const toggleButton = document.getElementById('toggleSidebar');
@@ -585,7 +589,9 @@ function Main({ insertarEvaluacionFormatos, footer, datosPaciente, setDatosPacie
                     confirmButtonText: 'OK!',
                     confirmButtonColor: '#2c3e50'
                 }).then(() => {
-                    window.location.href = '/';
+                    // window.location.href = '/';
+                    // location.reload();
+                    // window.location.href = '/Evolucion';
                 });
             } else {
                 throw new Error(result.error || 'Hubo un problema al insertar los datos');
@@ -1334,7 +1340,7 @@ function Main({ insertarEvaluacionFormatos, footer, datosPaciente, setDatosPacie
                 </div>
             </div>
 
-            <Signatures setFirmaPaciente={setFirmaPaciente} setFirmaProfesional={setFirmaProfesional} firmaPaciente={firmaPaciente} />
+            {/* <Signatures setFirmaPaciente={setFirmaPaciente} setFirmaProfesional={setFirmaProfesional} firmaPaciente={firmaPaciente} /> */}
             <ToastContainer />
 
         </MainContainer>
