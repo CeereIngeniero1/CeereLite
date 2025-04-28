@@ -80,15 +80,15 @@ export function Sidebar({ sidebarOpen, setSidebarOpen }) {
                         {/* Submenú de Facturación */}
                         {showFacturacionSubmenu && (
                             <SubmenuContainer>
-                                <NavLink to="/Facturacion" className="SubmenuLink">
+                                <NavLink to="/Principal/Facturacion" className="SubmenuLink">
                                     <IoAddCircle />  {/* Icono de Crear Factura */}
                                     {sidebarOpen && <span>Crear Factura</span>}
                                 </NavLink>
-                                <NavLink to="/AgregarResolucion" className="SubmenuLink">
+                                <NavLink to="/Principal/AgregarResolucion" className="SubmenuLink">
                                     <IoAddCircle />  {/* Icono de Agregar Resolución */}
                                     {sidebarOpen && <span>Agregar Resolución</span>}
                                 </NavLink>
-                                <NavLink to="/AgregarProductos" className="SubmenuLink">
+                                <NavLink to="/Principal/AgregarProductos" className="SubmenuLink">
                                     <IoAddCircle />  {/* Icono de Agregar Resolución */}
                                     {sidebarOpen && <span>Agregar Productos</span>}
                                 </NavLink>
@@ -146,12 +146,12 @@ const linksArray = [
     {
         label: "Home",
         icon: <AiOutlineHome />,
-        to: "/",
+        to: "/Principal/Home",
     },
     {
         label: "Agenda",
         icon: <FaCalendarAlt size={23} />,
-        to: "/Agenda",
+        to: "/Principal/Agenda",
     },
     {
         label: "Evolución Médica",
@@ -166,22 +166,22 @@ const linksArray = [
     {
         label: "Usuarios",
         icon: <FaUserFriends />,
-        to: "/Usuarios",
+        to: "/Principal/Usuarios",
     },
     {
         label: "Relacionador RIPS",
         icon: <AiOutlineMedicineBox />,
-        to: "/Rips",
+        to: "/Principal/Rips",
     },
     {
         label: "Pruebas",
         icon: <MdLogout />,
-        to: "Pruebas",
+        to: "/Principal/Pruebas",
     },
     {
         label: "Configuración",
         icon: <IoSettingsSharp />,
-        to: "Configuracion",
+        to: "/Principal/Configuracion",
     },
 ];
 
