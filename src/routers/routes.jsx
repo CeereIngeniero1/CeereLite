@@ -133,7 +133,7 @@ export function MyRoutes({ setIsAuthenticated, isAuthenticated }) {
             <Route path="/Principal/Home" element={<PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} />} />
             <Route path="/InicioDeSesion" element={isAuthenticated ? <Navigate to="/Principal/Home" /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
             <Route path="/Principal/Agenda" element={<PrivateRoute element={<Agenda />} isAuthenticated={isAuthenticated} />} />
-            <Route path="/Evolucion" element={<PrivateRoute element={<Evolucion />} isAuthenticated={isAuthenticated} />} />
+            <Route path="/Principal/Evolucion" element={<PrivateRoute element={<Evolucion />} isAuthenticated={isAuthenticated} />} />
             <Route path="/Principal/Facturacion" element={<PrivateRoute element={<Facturacion />} isAuthenticated={isAuthenticated} />} />
             <Route path="/Principal/Usuarios" element={<PrivateRoute element={<Usuarios />} isAuthenticated={isAuthenticated} />} />
             <Route path="/Principal/Rips" element={<PrivateRoute element={<Rips />} isAuthenticated={isAuthenticated} />} />

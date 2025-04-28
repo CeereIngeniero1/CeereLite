@@ -74,8 +74,8 @@ const MainContent = ({ isAuthenticated, sidebarOpen, setSidebarOpen, setIsAuthen
     const location = useLocation();
 
     return (
-        <Container className={sidebarOpen && location.pathname !== '/Evolucion' ? "sidebarState active" : ""}>
-            {isAuthenticated && location.pathname !== '/Evolucion' && (
+        <Container className={sidebarOpen && location.pathname !== '/Principal/Evolucion' ? "sidebarState active" : ""}>
+            {isAuthenticated && location.pathname !== '/Principal/Evolucion' && (
                 <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
             )}
             <MyRoutes setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} />
